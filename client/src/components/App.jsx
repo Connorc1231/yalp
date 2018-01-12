@@ -77,19 +77,14 @@ class App extends React.Component {
   }
 
   updateBusiness(business) {
-    getBusinessInfo(business.id)
     // this.setState({business: business})
+    this.getBusinessInfo(business.id)
     // console.log(business);
   }
 
   getBusinessInfo(businessId) {
-    console.log('gettingInfo');
     let self = this;
-    axios.get(`/server/business/${businessId}`, {
-      params: {
-        Authorization: `Bearer ${config.YELP_API_KEY}`
-      }
-    })
+    axios.get(`/server/business/${businessId}`)
       .then(resp => {
         console.log(resp)
       })

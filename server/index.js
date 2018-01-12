@@ -36,32 +36,30 @@ app.post('/server/signup', (req, res) => {
 // when user search
 app.get('/server/search/:query', (req, res) => {
   console.log(req.params.query)
-  api.searchBusinesses(req.params.query, (err, results) => {
-    if (err) {
-      res.status(400);
-      res.end('Failed to Search.');
-    } else {
-      res.status(201).json(results);
-    }
-  })
-  // use below for test
-  // db.tempSearch(req.body, (err, results) => {
+  // api.searchBusinesses(req.params.query, (err, results) => {
   //   if (err) {
   //     res.status(400);
   //     res.end('Failed to Search.');
   //   } else {
-  //     //using fake data object mirroring API
-  //     res.status(201).json(api.fakeData);
+  //     res.status(201).json(results);
   //   }
   // })
+  // use below for test
+  db.tempSearch(req.body, (err, results) => {
+    if (err) {
+      res.status(400);
+      res.end('Failed to Search.');
+    } else {
+      //using fake data object mirroring API
+      res.status(201).json(api.fakeData);
+    }
+  })
 });
 
 // when user clicks on a business
 app.get('/server/business/:id', (req, res) => {
-  console.log('serversearch')
-  let businessId = this.params.id;
-  console.log(businessId)
-  // res.status(200).json('ok');
+  console.log(req.params.id)
+  res.status(200).json('ok');
 });
 
 // when user clicks on his/her profile

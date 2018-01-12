@@ -1,5 +1,4 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import Search from './Search.jsx'
 import BusinessInfo from './BusinessInfo.jsx';
 import PhotoFeed from './PhotoFeed.jsx';
@@ -8,10 +7,6 @@ import Reviews from './Reviews.jsx';
 class BusinessPage extends React.Component {
   constructor(props) {
     super(props)
-  }
-
-  getInfo() {
-    this.props.getBusinessInfo();
   }
 
   render() {

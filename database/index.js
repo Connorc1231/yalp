@@ -96,7 +96,6 @@ const tempSearch = function (search, cb) {
     let query = `SELECT * FROM businesses`
 
     connection.query(query, (err, results) => {
-        console.log(results)
         if (err) {
             cb(err)
         } else {
